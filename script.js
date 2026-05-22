@@ -1,7 +1,7 @@
 const config = {
-  A12: { frontConst: 16, rearConst: 16, fTire: 41.0, fSim: 1.0, rTire: 42.0, rSim: 0.5 },
-  F103: { frontConst: 18, rearConst: 18, fTire: 48.0, fSim: 2.5, rTire: 48.0, rSim: 2.0 },
-  'F103-S': { frontConst: 14, rearConst: 15, fTire: 41.0, fSim: 2.5, rTire: 42.0, rSim: 2.0 }
+  A12: { frontConst: 18, rearConst: 16, fTire: 41.0, fSim: 1.0, rTire: 42.0, rSim: 0.5 },
+  F103: { frontConst: 23, rearConst: 18, fTire: 48.0, fSim: 2.5, rTire: 48.0, rSim: 2.0 },
+  'F103-S': { frontConst: 19, rearConst: 15, fTire: 41.0, fSim: 2.5, rTire: 42.0, rSim: 2.0 }
 };
 
 let currentState = {
@@ -49,9 +49,11 @@ function updateUI() {
   document.getElementById('rearTire-display').innerText = currentState.rearTire.toFixed(1);
   document.getElementById('rearSim-display').innerText = currentState.rearSim.toFixed(1);
 
-  // Calculate: Ride Height = (Tire / 2) - Sim - Const
+  // Calculate: 
+  // Front Ride Height = (Tire / 2) + Sim - Const
+  // Rear Ride Height = (Tire / 2) - Sim - Const
   const c = config[currentState.chassis];
-  const frontRH = (currentState.frontTire / 2) - currentState.frontSim - c.frontConst;
+  const frontRH = (currentState.frontTire / 2) + currentState.frontSim - c.frontConst;
   const rearRH = (currentState.rearTire / 2) - currentState.rearSim - c.rearConst;
 
   document.getElementById('frontResult').innerText = frontRH.toFixed(1);
