@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>calcH - RC Ride Height Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>calcH</h1>
+    </header>
+
+    <div class="chassis-selector">
+      <button class="chassis-btn active" onclick="setChassis('A12')">A12</button>
+      <button class="chassis-btn" onclick="setChassis('F103')">F103</button>
+      <button class="chassis-btn" onclick="setChassis('F103-S')">F103-S</button>
+    </div>
+
+    <div class="card">
+      <div class="section-title">FRONT</div>
+      <div class="input-group">
+        <div class="input-row">
+          <div class="label-box">
+            <span class="label-main">Tire Diameter</span>
+            <span class="label-sub">mm</span>
+          </div>
+          <div class="controls">
+            <button class="btn-ctrl" onclick="changeVal('frontTire', -0.2)">-</button>
+            <div id="frontTire-display" class="val-display">41.0</div>
+            <button class="btn-ctrl" onclick="changeVal('frontTire', 0.2)">+</button>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="label-box">
+            <span class="label-main">Upper Sim</span>
+            <span class="label-sub">mm</span>
+          </div>
+          <div class="controls">
+            <button class="btn-ctrl" onclick="changeVal('frontSim', -0.1)">-</button>
+            <div id="frontSim-display" class="val-display">1.0</div>
+            <button class="btn-ctrl" onclick="changeVal('frontSim', 0.1)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">FRONT RIDE HEIGHT</div>
+        <div id="frontResult" class="result-value">3.5</div>
+        <div class="result-unit">mm</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">REAR</div>
+      <div class="input-group">
+        <div class="input-row">
+          <div class="label-box">
+            <span class="label-main">Tire Diameter</span>
+            <span class="label-sub">mm</span>
+          </div>
+          <div class="controls">
+            <button class="btn-ctrl" onclick="changeVal('rearTire', -0.2)">-</button>
+            <div id="rearTire-display" class="val-display">42.0</div>
+            <button class="btn-ctrl" onclick="changeVal('rearTire', 0.2)">+</button>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="label-box">
+            <span class="label-main">Sim</span>
+            <span class="label-sub">mm</span>
+          </div>
+          <div class="controls">
+            <button class="btn-ctrl" onclick="changeVal('rearSim', -0.5)">-</button>
+            <div id="rearSim-display" class="val-display">0.5</div>
+            <button class="btn-ctrl" onclick="changeVal('rearSim', 0.5)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">REAR RIDE HEIGHT</div>
+        <div id="rearResult" class="result-value">4.5</div>
+        <div class="result-unit">mm</div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      calcH v1.0 | Created for iPhone
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
